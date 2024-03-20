@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuGetDownloader", "NuGetDownloader\NuGetDownloader.csproj", "{E74ADE7F-F06E-4318-B98E-BD8F49460317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{7033E5BD-890A-48C1-B2F1-CB9198D0F383}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "Serialization\Serialization.csproj", "{7033E5BD-890A-48C1-B2F1-CB9198D0F383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGetDTOs", "NuGetDTOs\NuGetDTOs.csproj", "{F488DD98-E7B8-4B9D-BD77-99B9A5242733}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7033E5BD-890A-48C1-B2F1-CB9198D0F383}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7033E5BD-890A-48C1-B2F1-CB9198D0F383}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7033E5BD-890A-48C1-B2F1-CB9198D0F383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F488DD98-E7B8-4B9D-BD77-99B9A5242733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F488DD98-E7B8-4B9D-BD77-99B9A5242733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F488DD98-E7B8-4B9D-BD77-99B9A5242733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F488DD98-E7B8-4B9D-BD77-99B9A5242733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
