@@ -8,7 +8,7 @@ namespace Playground.NuGetDTOs
     /// <param name="Id">The id of the matched package (usually the package name).</param>
     /// <param name="AvailablePackageVersions">All the available versions for the matched package.</param>
     public record SearchResult([property: JsonPropertyName("id")] string Id,
-                               [property: JsonPropertyName("versions")] IEnumerable<PackageVersion> AvailablePackageVersions)
+                               [property: JsonPropertyName("versions")] IEnumerable<PackageVersionInfo> AvailablePackageVersions)
     {
     }
 }

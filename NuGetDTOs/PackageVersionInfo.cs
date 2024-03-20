@@ -8,8 +8,8 @@ namespace Playground.NuGetDTOs
     /// </summary>
     /// <param name="RegistrationLeafUrl">A url that leads to the specific package version <see cref="RegistrationLeaf"/>.</param>
     /// <param name="Version">The version of the package.</param>
-    public record PackageVersion([property: JsonPropertyName("@id")] string RegistrationLeafUrl,
-                                 [property: JsonPropertyName("version")] NuGetVersion Version)
+    public record PackageVersionInfo([property: JsonPropertyName("@id")] string RegistrationLeafUrl,
+                                     [property: JsonPropertyName("version")] NuGetVersion Version)
     {
     }
 }
