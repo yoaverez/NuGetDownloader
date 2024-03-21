@@ -44,12 +44,12 @@ namespace Utils
         }
 
         /// <summary>
-        /// A <see cref="Uri"/> paths combiner.
+        /// A uri-like paths combiner.
         /// </summary>
         /// <param name="firstUri">The first uri to combine.</param>
         /// <param name="uris">The uris to concatenate to the <paramref name="firstUri"/>.</param>
-        /// <returns>A Uri that represent the combination of the given uris.</returns>
-        public static Uri UriCombine(string firstUri, params string[] uris)
+        /// <returns>A string representing a Uri-like combination of given <paramref name="uris"/>.</returns>
+        public static string UriCombine(string firstUri, params string[] uris)
         {
             var combinedUri = new StringBuilder(firstUri.Trim().TrimEnd('/'));
             foreach (var uri in uris)
@@ -57,7 +57,7 @@ namespace Utils
                 var uriAfterTrim = uri.Trim().Trim('/');
                 combinedUri.Append($"/{uriAfterTrim}");
             }
-            return new Uri(combinedUri.ToString());
+            return combinedUri.ToString();
         }
     }
 }
