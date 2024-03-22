@@ -1,7 +1,6 @@
-﻿using Playground.NuGetDTOs;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Playground.NuGetDTO
+namespace NuGetDTOs
 {
     /// <summary>
     /// A DTO for for the api's "Package dependency group" object.<br/>

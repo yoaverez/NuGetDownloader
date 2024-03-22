@@ -1,7 +1,7 @@
 ﻿using NuGet.Versioning;
 using System.Text.Json.Serialization;
 
-namespace Playground.NuGetDTOs
+namespace NuGetDTOs
 {
     /// <summary>
     /// A DTO representing a specific package version info.

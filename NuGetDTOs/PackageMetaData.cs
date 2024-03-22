@@ -1,8 +1,7 @@
 ﻿using NuGet.Versioning;
-using Playground.NuGetDTO;
 using System.Text.Json.Serialization;
 
-namespace Playground.NuGetDTOs
+namespace NuGetDTOs
 {
     /// <summary>
     /// A DTO for the api's "Catalog entry" object.<br/>

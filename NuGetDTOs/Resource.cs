@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Playground.NuGetDTOs
+namespace NuGetDTOs
 {
     /// <summary>
     /// A DTO to the api's "Resource" object.<br/>
