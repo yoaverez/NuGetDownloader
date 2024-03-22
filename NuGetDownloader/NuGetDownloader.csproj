@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,5 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Appsettings\appsettings.logger.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="CopyLoggerAppSettingsToOutputDirectory" AfterTargets="Build">
+    <RemoveDir Directories="$(OutDir)Appsettings"></RemoveDir>
+    <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.logger.json" DestinationFiles="$(OutDir)appsettings.logger.json">
+    </Copy>
+  </Target>
 
 </Project>
