@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Logs.Abstracts\Logs.Abstracts.csproj" />
+    <ProjectReference Include="..\Logs.Internals\Logs.Internals.csproj" />
+  </ItemGroup>
+
 </Project>
