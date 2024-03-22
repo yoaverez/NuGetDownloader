@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="6.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Appsettings\appsettings.logger.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
