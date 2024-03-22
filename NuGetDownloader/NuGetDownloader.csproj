@@ -12,6 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Logs\Logs.Abstracts\Logs.Abstracts.csproj" />
+    <ProjectReference Include="..\Logs\Logs.Factories\Logs.Factories.csproj" />
+    <ProjectReference Include="..\Services\Services.Abstracts\Services.Abstracts.csproj" />
+    <ProjectReference Include="..\Services\Services.Factories\Services.Factories.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Appsettings\appsettings.logger.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
