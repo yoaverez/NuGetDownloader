@@ -14,7 +14,7 @@ namespace NuGetDTOs
     /// then the <paramref name="PackageDependencies"/> of A will contain <b>only package B</b>.
     /// </remarks>
     public record DependencyGroup([property: JsonPropertyName("targetFramework")] string? TargetFramework,
-                                  [property: JsonPropertyName("dependencies")] IEnumerable<PackageDependency> PackageDependencies)
+                                  [property: JsonPropertyName("dependencies")] IEnumerable<PackageDependency>? PackageDependencies)
     {
     }
 }
