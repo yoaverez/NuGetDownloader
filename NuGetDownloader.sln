@@ -9,15 +9,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "Serializat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuGetDTOs", "NuGetDTOs\NuGetDTOs.csproj", "{F488DD98-E7B8-4B9D-BD77-99B9A5242733}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{4DB9C6A2-E512-4BEB-847A-03CEED39367F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{4DB9C6A2-E512-4BEB-847A-03CEED39367F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C8ABCB10-9FB2-49E3-9BFF-7F2CC7257A29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Abstracts", "Services\Services.Abstracts\Services.Abstracts.csproj", "{729FA4AE-6C2A-476D-9D30-C3173BFA40E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Abstracts", "Services\Services.Abstracts\Services.Abstracts.csproj", "{729FA4AE-6C2A-476D-9D30-C3173BFA40E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Factories", "Services\Services.Factories\Services.Factories.csproj", "{BF460CA6-423F-476A-B7A1-6DD183C71AE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Factories", "Services\Services.Factories\Services.Factories.csproj", "{BF460CA6-423F-476A-B7A1-6DD183C71AE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Internal", "Services\Services.Internal\Services.Internal.csproj", "{D8F7DBAD-1870-41FD-9591-4C17F9093DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Internal", "Services\Services.Internal\Services.Internal.csproj", "{D8F7DBAD-1870-41FD-9591-4C17F9093DF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logs", "Logs", "{10581C8F-0DA3-41C8-9A6C-8E7AE46A98BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs.Abstracts", "Logs\Logs.Abstracts\Logs.Abstracts.csproj", "{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs.Factories", "Logs\Logs.Factories\Logs.Factories.csproj", "{D179702F-A3BF-4AC9-94DA-B52B66A93256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs.Internals", "Logs\Logs.Internals\Logs.Internals.csproj", "{2242CF71-2FD6-4E5E-879B-B797B9380E8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +61,18 @@ Global
 		{D8F7DBAD-1870-41FD-9591-4C17F9093DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8F7DBAD-1870-41FD-9591-4C17F9093DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8F7DBAD-1870-41FD-9591-4C17F9093DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D179702F-A3BF-4AC9-94DA-B52B66A93256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D179702F-A3BF-4AC9-94DA-B52B66A93256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D179702F-A3BF-4AC9-94DA-B52B66A93256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D179702F-A3BF-4AC9-94DA-B52B66A93256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2242CF71-2FD6-4E5E-879B-B797B9380E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2242CF71-2FD6-4E5E-879B-B797B9380E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2242CF71-2FD6-4E5E-879B-B797B9380E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2242CF71-2FD6-4E5E-879B-B797B9380E8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +81,9 @@ Global
 		{729FA4AE-6C2A-476D-9D30-C3173BFA40E1} = {C8ABCB10-9FB2-49E3-9BFF-7F2CC7257A29}
 		{BF460CA6-423F-476A-B7A1-6DD183C71AE9} = {C8ABCB10-9FB2-49E3-9BFF-7F2CC7257A29}
 		{D8F7DBAD-1870-41FD-9591-4C17F9093DF9} = {C8ABCB10-9FB2-49E3-9BFF-7F2CC7257A29}
+		{3BA57380-EBAC-4898-8F6A-D80ACD8A8EBB} = {10581C8F-0DA3-41C8-9A6C-8E7AE46A98BE}
+		{D179702F-A3BF-4AC9-94DA-B52B66A93256} = {10581C8F-0DA3-41C8-9A6C-8E7AE46A98BE}
+		{2242CF71-2FD6-4E5E-879B-B797B9380E8E} = {10581C8F-0DA3-41C8-9A6C-8E7AE46A98BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01E83EE6-333F-464D-BA43-6A603EAF6104}
