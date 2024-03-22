@@ -1,5 +1,5 @@
 ﻿using NuGet.Versioning;
-using Playground.NuGetDTOs;
+using NuGetDTOs;
 using Services.Abstracts;
 using static Utils.HttpUtils;
 

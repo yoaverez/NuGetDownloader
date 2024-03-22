@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Playground.NuGetDTOs
+namespace NuGetDTOs
 {
     /// <summary>
     /// A DTO for the api's "Service index" object.<br/>

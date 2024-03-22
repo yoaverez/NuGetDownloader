@@ -1,4 +1,4 @@
-﻿using Playground.NuGetDTOs;
+﻿using NuGetDTOs;
 
 namespace Services.Abstracts
 {

@@ -1,4 +1,4 @@
-﻿using Playground.NuGetDTOs;
+﻿using NuGetDTOs;
 using Services.Abstracts;
 using Services.Internal;
 using Utils;
