@@ -52,9 +52,10 @@ namespace NuGetDownloader
         /// <param name="outputDirectoryPath">The directory to download the package and it's dependencies to.</param>
         /// <param name="packageName">The name of the package to download.</param>
         /// <param name="wantedVersion">The version of the package to download.</param>
+        /// <param name="downloadBuiltInLibraries">Whether or not to download built-in dependencies like "System".</param>
         /// <returns>A running task that downloads the package and all it's dependencies.</returns>
         /// <exception cref="ArgumentException">Thrown when the given <paramref name="wantedVersion"/> is illegal version.</exception>
-        public static async Task DownloadPackageAndItsDependenciesAsync(string outputDirectoryPath, string packageName, string wantedVersion)
+        public static async Task DownloadPackageAndItsDependenciesAsync(string outputDirectoryPath, string packageName, string wantedVersion, bool downloadBuiltInLibraries = false)
         {
             if (NuGetVersion.TryParse(wantedVersion, out var version))
             {
@@ -62,7 +63,7 @@ namespace NuGetDownloader
                 if (!Directory.Exists(outputDirectoryPath))
                     Directory.CreateDirectory(outputDirectoryPath);
 
-                await DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, packageName, version, new HashSet<string>());
+                await DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, packageName, version, new HashSet<string>(), downloadBuiltInLibraries);
             }
             else
             {
@@ -70,9 +71,9 @@ namespace NuGetDownloader
             }
         }
 
-        /// <inheritdoc cref="DownloadPackageAndItsDependenciesAsync(string, string, string)"/>
+        /// <inheritdoc cref="DownloadPackageAndItsDependenciesAsync(string, string, string, bool)"/>
         /// <param name="alreadyPassThrough">A set that contains the identifiers of packages that we already pass through.</param>
-        private static async Task DownloadPackageAndItsDependenciesAsync(string outputDirectoryPath, string packageName, NuGetVersion wantedVersion, HashSet<string> alreadyPassThrough)
+        private static async Task DownloadPackageAndItsDependenciesAsync(string outputDirectoryPath, string packageName, NuGetVersion wantedVersion, HashSet<string> alreadyPassThrough, bool downloadBuiltInLibraries)
         {
             var packageAndVersionIdentifier = GetPackageAndVersionIdentifier(packageName, wantedVersion);
             if (!alreadyPassThrough.Contains(packageAndVersionIdentifier))
@@ -98,8 +99,10 @@ namespace NuGetDownloader
                 var packageMetaData = await packageMetaDataService.GetPackageMetaDataAsync(packageName, wantedVersion);
 
                 // Get all the direct dependencies of the package.
-                var packageDependencies = packageMetaData.DependencyGroups?.SelectMany(dependencyGroup => dependencyGroup.PackageDependencies ?? Enumerable.Empty<PackageDependency>())
-                                                                           .IgnoreBuiltinDependencies() ?? Enumerable.Empty<PackageDependency>();
+                var packageDependencies = packageMetaData.DependencyGroups?.SelectMany(dependencyGroup => dependencyGroup.PackageDependencies ?? Enumerable.Empty<PackageDependency>()) ?? Enumerable.Empty<PackageDependency>();
+
+                if (!downloadBuiltInLibraries)
+                    packageDependencies = packageDependencies.IgnoreBuiltinDependencies();
 
                 // Download all the package dependencies.
                 foreach (var dependency in packageDependencies)
@@ -112,7 +115,7 @@ namespace NuGetDownloader
                     // There was version that fits the version range.
                     if (dependencyVersion is not null)
                     {
-                        await DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, dependencyName, dependencyVersion, alreadyPassThrough);
+                        await DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, dependencyName, dependencyVersion, alreadyPassThrough, downloadBuiltInLibraries);
                     }
                 }
             }
