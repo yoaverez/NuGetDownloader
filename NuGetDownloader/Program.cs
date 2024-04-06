@@ -1,10 +1,18 @@
-﻿namespace NuGetDownloader
+﻿using CommandLine;
+using NuGetDownloader.CommandLineObjects.Executers;
+using NuGetDownloader.CommandLineObjects.Options;
+using Utils;
+
+namespace NuGetDownloader
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Parser.Default.ParseArguments<GenerateConfigOptions, RunOptions>(args)
+                          .MapResult((GenerateConfigOptions generateOptions) => GenerateConfigExecuter.Execute(generateOptions),
+                                     (RunOptions runOptions) => RunExecuter.ExecuteAsync(runOptions).TaskWaiter(),
+                                     err => 1);
         }
     }
 }
