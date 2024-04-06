@@ -1,5 +1,11 @@
 # NuGetDownloader
 
+`NuGetDownloader` is an application for downloading nugets packages (`.nupkg`) and all of their dependencies.
+
+For example: <br/>
+Given a packages `A, B, C, D` such that `A` depends on `B` and `B` depends on `C` and `D`.<br/>
+If you run the `NuGetDownloader` to download package `A`, it will download packages `A, B, C, D` since `A` is **directly or indirecly** depends on all of them.
+
 ## Install
 Download the latest release from: https://github.com/yoaverez/NuGetDownloader/releases.
 
