@@ -11,7 +11,10 @@ namespace Serialization
         /// <returns>A new <see cref="JsonSerializerOptions"/> with a default settings for this project.</returns>
         public static JsonSerializerOptions GetDefaultSerializationSettings()
         {
-            var serializationOptions = new JsonSerializerOptions();
+            var serializationOptions = new JsonSerializerOptions()
+            {
+                WriteIndented = true,
+            };
 
             // Add custom converters.
             serializationOptions.Converters.Add(new NuGetVersionConverter());
