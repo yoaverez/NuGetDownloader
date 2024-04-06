@@ -9,5 +9,10 @@ namespace NuGetDownloader.CommandLineObjects.Options
     [Verb("generate-config", HelpText = "Generate an example of how the application configuration file (i.e. appsettings) should look like.")]
     public class GenerateConfigOptions
     {
+        /// <summary>
+        /// The path to the directory in which to place the new config example file.
+        /// </summary>
+        [Option('p', Default = "./" , Required = false, HelpText = "The path to the directory in which to place the new appsettings example file.")]
+        public string ConfigFilePath { get; set; }
     }
 }
