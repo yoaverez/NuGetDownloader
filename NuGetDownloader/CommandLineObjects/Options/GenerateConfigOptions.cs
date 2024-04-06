@@ -12,7 +12,7 @@ namespace NuGetDownloader.CommandLineObjects.Options
         /// <summary>
         /// The path to the directory in which to place the new config example file.
         /// </summary>
-        [Option('p', Default = "./" , Required = false, HelpText = "The path to the directory in which to place the new appsettings example file.")]
+        [Option('p', Default = "./appsettings.json" , Required = false, HelpText = "The path to the directory in which to place the new appsettings example file.")]
         public string ConfigFilePath { get; set; }
     }
 }
