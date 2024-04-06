@@ -20,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Appsettings\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Appsettings\appsettings.logger.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -28,6 +31,12 @@
   <Target Name="CopyLoggerAppSettingsToOutputDirectory" AfterTargets="Build">
     <RemoveDir Directories="$(OutDir)Appsettings"></RemoveDir>
     <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.logger.json" DestinationFiles="$(OutDir)appsettings.logger.json">
+    </Copy>
+  </Target>
+
+  <Target Name="CopyAppSettingsToOutputDirectory" AfterTargets="Build">
+    <RemoveDir Directories="$(OutDir)Appsettings"></RemoveDir>
+    <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.json" DestinationFiles="$(OutDir)appsettings.json">
     </Copy>
   </Target>
 
