@@ -22,7 +22,7 @@ namespace NuGetDownloader.CommandLineObjects.Executers
             foreach (var downloadRequest in config.DownloadRequests)
             {
                 var outputDirectoryPath = Path.Combine(config.OutputDirectoryPath, $"{downloadRequest.PackageName}.{downloadRequest.PackageVersion}");
-                await NuGetPackagesDownloader.DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, downloadRequest.PackageName, downloadRequest.PackageVersion, config.DownloadBuiltInLibraries);
+                await NuGetPackagesDownloader.DownloadPackageAndItsDependenciesAsync(outputDirectoryPath, downloadRequest.PackageName, downloadRequest.PackageVersion, downloadRequest.DownloadBuiltInLibraries);
             }
 
             // Return success status.
