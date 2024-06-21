@@ -11,7 +11,7 @@ Download the latest release from: https://github.com/yoaverez/NuGetDownloader/re
 
 ## Usage
 
-### Download a single package and all of its dependencies
+### Download a single or multiple packages and all of their dependencies
 ```shell
 NuGetDownloader.exe run
 ```
@@ -39,11 +39,11 @@ This is an example of an appsettings file:
 ```json
 {
   "OutputDirectoryPath": "./",
-  "DownloadBuiltInLibraries": false,
   "DownloadRequests": [
     {
       "PackageName": "benchmarkdotnet",
-      "PackageVersion": "0.13.12"
+      "PackageVersion": "0.13.12",
+      "DownloadBuiltInLibraries": false
     }
   ]
 }
@@ -56,9 +56,9 @@ This is an example of an appsettings file:
     
     For example, if you want to download the `benchmarkdotnet` package with version `0.13.12` all the packages will be downloaded to: `OutputDirectoryPath/benchmarkdotnet.0.13.12` directory.
 
-* `DownloadBuiltInLibraries` - Indicated whether or not to download dependencies of a built-in libraries like `System` or `NetStandard` etc.
-
 * `DownloadRequests` - A list of objects. Each object represent a single download request. A single download request has the following properties:
     * `PackageName` - The full name of the package that you want to download.
     
     * `PackageVersion` - The wanted version of the above package.
+
+    * `DownloadBuiltInLibraries` - Indicated whether or not to download dependencies of a built-in libraries like `System` or `NetStandard` etc.
