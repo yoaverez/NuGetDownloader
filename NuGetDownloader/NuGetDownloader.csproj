@@ -5,6 +5,13 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!--Properties for the publish target-->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +45,24 @@
     <RemoveDir Directories="$(OutDir)Appsettings"></RemoveDir>
     <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.json" DestinationFiles="$(OutDir)appsettings.json">
     </Copy>
+  </Target>
+
+  <Target Name="PublishApp" AfterTargets="CopyAppSettingsToOutputDirectory" Condition="'$(Configuration)' == 'Release'">
+
+    <!--Publish the app-->
+    <Exec Command="dotnet publish -o $(OutDir)publish -c $(Configuration) --no-build" />
+
+    <!--Delete the appsettings directory from the publish directory-->
+    <RemoveDir Directories="$(OutDir)publish\Appsettings"></RemoveDir>
+
+    <!--Copy the appsettings files to the publish directory-->
+    <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.logger.json" DestinationFiles="$(OutDir)publish\appsettings.logger.json"></Copy>
+    <Copy SourceFiles="$(ProjectDir)Appsettings\appsettings.json" DestinationFiles="$(OutDir)publish\appsettings.json"></Copy>
+
+    <!--Zip the publish directory-->
+    <!--For some reason the zip task works but gets an error: "failed to zip directory because it is being used by another process"-->
+    <!--The ContinueOnError="WarnAndContinue" attribute in order for the build to succeed even with the above "error" -->
+    <ZipDirectory SourceDirectory="$(OutDir)publish" DestinationFile="$(OutDir)publish\publish-app.zip" Overwrite="true" ContinueOnError="WarnAndContinue" />
   </Target>
 
 </Project>
