@@ -38,7 +38,7 @@ namespace NuGetDownloader
         /// </summary>
         static NuGetPackagesDownloader()
         {
-            var executableDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var executableDirectory = AppContext.BaseDirectory;
             logger = LoggersFactory.CreateLogger(Path.Combine(executableDirectory, LOGGER_APPSETTINGS_NAME));
             packageMetaDataService = ServiceFactory.Instance.GetPackageMetaDataService();
             packageContentsService = ServiceFactory.Instance.GetPackageContentsService();
